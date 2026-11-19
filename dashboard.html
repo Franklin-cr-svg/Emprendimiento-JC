@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control | VitaNexo</title>
+    <link rel="stylesheet" href="sistema.css">
+</head>
+<body class="bg-gray">
+
+    <!-- Barra lateral / Menú superior -->
+    <nav class="topbar">
+        <div class="logo">VitaNexo <span>+</span></div>
+        <div class="user-menu">
+            <span id="userNameDisplay">Hola, Familiar</span>
+            <button id="btnLogout" class="btn-outline">Salir</button>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <main class="dashboard-container">
+        
+        <!-- Encabezado del Dashboard -->
+        <header class="dash-header">
+            <h1>Estado de: <span id="pacienteDisplay" class="highlight">Cargando...</span></h1>
+            <div class="status-badge success">✔ Al día con su tratamiento</div>
+        </header>
+
+        <!-- Tarjetas de información -->
+        <div class="dash-grid">
+            
+            <!-- Tarjeta 1: Próxima Toma -->
+            <div class="dash-card">
+                <h3>Próxima Toma</h3>
+                <div class="time-big">14:00 hrs</div>
+                <p class="medicine-name">Metformina 500mg</p>
+                <p class="instruction">Con los alimentos</p>
+                <button class="btn-primary small-btn" onclick="confirmarToma()">Marcar como Tomada</button>
+            </div>
+
+            <!-- Tarjeta 2: Botiquín / Inventario -->
+            <div class="dash-card">
+                <h3>Mi Botiquín Inteligente</h3>
+                <ul class="med-list">
+                    <li>
+                        <div class="med-info">
+                            <strong>Losartán 50mg</strong>
+                            <span>Quedan 28 pastillas</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill green" style="width: 90%;"></div></div>
+                    </li>
+                    <li>
+                        <div class="med-info">
+                            <strong>Atorvastatina 20mg</strong>
+                            <span class="warning-text">Quedan 4 pastillas</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill red" style="width: 15%;"></div></div>
+                        <p class="alert-text">⚠️ Envío programado para mañana</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 3: Mensajes del Farmacéutico -->
+            <div class="dash-card">
+                <h3>Asesoría Activa</h3>
+                <div class="chat-bubble">
+                    <strong>Farmacéutico Juan:</strong>
+                    <p>"Hola. Noté que renovamos la receta de Atorvastatina. Recuerda que es mejor que Roberto la tome por la noche. ¿Alguna duda?"</p>
+                </div>
+                <button class="btn-outline full-width mt-10">Responder a Juan</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="sistema.js"></script>
+</body>
+</html>

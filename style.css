@@ -1,0 +1,250 @@
+/* Variables de colores de farmacia */
+:root {
+    --primary-blue: #0056b3; /* Azul médico */
+    --secondary-green: #28a745; /* Verde salud */
+    --light-bg: #f4f7f6;
+    --dark-text: #333333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: var(--dark-text);
+    background-color: var(--white);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.logo span {
+    color: var(--secondary-green);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--secondary-green);
+    color: var(--white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80') center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--secondary-green);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Secciones Generales */
+section {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+section h2 {
+    color: var(--primary-blue);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Pasos */
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.step {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.step .icon {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+/* Planes */
+.pricing {
+    background-color: var(--light-bg);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card.premium {
+    border: 2px solid var(--secondary-green);
+    transform: scale(1.05);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card .price {
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.card ul {
+    list-style: none;
+    text-align: left;
+    line-height: 2;
+}
+
+/* Formulario */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Contenedor para alinear los dos botones del menú */
+.header-buttons {
+    display: flex;
+    gap: 15px; /* Crea un espacio entre los dos botones */
+    align-items: center;
+}
+
+/* Estilo para el nuevo botón de Regístrate */
+.btn-outline-nav {
+    background-color: transparent;
+    color: var(--primary-blue); /* Usa el azul de la farmacia */
+    padding: 8px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid var(--primary-blue);
+    transition: all 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+/* Efecto cuando el usuario pasa el mouse por encima */
+.btn-outline-nav:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Efecto hover también para el botón principal (opcional, para que se vea mejor) */
+.btn-primary:hover {
+    background-color: #218838; /* Un verde un poco más oscuro */
+    transition: all 0.3s ease;
+}
