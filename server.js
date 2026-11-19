@@ -5,10 +5,10 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const app = express();
-app.use(cors()); // Permite que tu página web se comunique con el servidor
-app.use(express.json()); // Permite leer los datos JSON que envía el formulario
+app.use(cors()); 
+app.use(express.json()); // leer datos JSON
 
-// Conexión configurada desde las variables de entorno de Render.
+// Conexión para render
 const MONGO_URI = process.env.MONGO_URI;
 if (!MONGO_URI) {
     console.error('Falta MONGO_URI. Configúrala en Render > Environment.');
@@ -19,9 +19,9 @@ mongoose.connect(MONGO_URI)
     .then(() => console.log('Conectado a MongoDB Atlas'))
     .catch(err => console.error('Error al conectar a MongoDB:', err.message));
 
-// ============================================================
-// 2. MODELOS DE DATOS (Estructura de la base de datos)
-// ============================================================
+
+// MODELOS DE DATOS
+
 const usuarioSchema = new mongoose.Schema({
     nombre: { type: String, required: true },
     email: { type: String, required: true, unique: true },
@@ -33,9 +33,9 @@ const usuarioSchema = new mongoose.Schema({
 
 const Usuario = mongoose.model('Usuario', usuarioSchema);
 
-// ============================================================
-// 3. RUTAS DE LA API (Lo que recibe las peticiones de sistema.js)
-// ============================================================
+
+// 3. RUTAS DE LA API
+
 
 
 // Ruta para registrar un nuevo usuario
@@ -60,19 +60,19 @@ app.post('/api/usuarios', async (req, res) => {
 // Ruta para confirmar una toma de medicamento
 app.post('/api/tomas/confirmar', async (req, res) => {
     try {
-        // Aquí luego conectaremos el descuento real del inventario
+        // descuento real del medicamento
         res.json({ mensaje: 'Toma confirmada y registrada en la nube.' });
     } catch (error) {
         res.status(500).json({ error: 'Error interno al confirmar la toma' });
     }
 });
 
-// Publicar el frontend desde el mismo servidor que la API.
+// Publicar frontend en el mismo servidor
 app.use(express.static(path.join(__dirname)));
 
-// ============================================================
-// 4. INICIAR EL SERVIDOR (Listo para Render)
-// ============================================================
+
+// INICIAR EL SERVIDOR 
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor en línea en el puerto ${PORT}`);
