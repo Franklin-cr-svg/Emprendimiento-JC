@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | VitaNexo</title>
+    <link rel="stylesheet" href="sistema.css">
+</head>
+<body class="bg-gray">
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="logo-center">VitaNexo <span>+</span></div>
+            <h2>Crear tu cuenta</h2>
+            <p class="subtitle">Comienza a gestionar la salud de los que amas</p>
+
+            <form id="registroForm">
+                <!-- Datos del Tutor / Familiar -->
+                <fieldset>
+                    <legend>Tus Datos (Familiar/Tutor)</legend>
+                    <input type="text" id="nombreTutor" placeholder="Tu Nombre Completo" required>
+                    <input type="email" id="emailTutor" placeholder="Tu Correo Electrónico" required>
+                    <input type="tel" id="telefonoTutor" placeholder="Tu Teléfono / WhatsApp" required>
+                    <input type="password" id="passTutor" placeholder="Crea una Contraseña" required>
+                </fieldset>
+
+                <!-- Datos del Paciente -->
+                <fieldset>
+                    <legend>Datos del Paciente</legend>
+                    <input type="text" id="nombrePaciente" placeholder="Nombre del Paciente (Ej: Mi papá, Roberto)" required>
+                    <input type="text" id="enfermedadPaciente" placeholder="Condición principal (Ej: Hipertensión, Diabetes)">
+                </fieldset>
+
+                <button type="submit" class="btn-primary full-width">Registrarse y Continuar</button>
+            </form>
+            <p class="login-link">¿Ya tienes cuenta? <a href="#">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+
+    <script src="sistema.js"></script>
+</body>
+</html>
