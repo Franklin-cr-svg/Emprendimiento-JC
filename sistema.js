@@ -1,21 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ============================================================
     // 1. REGISTRO DE USUARIO CONECTADO AL BACKEND
-    // ============================================================
+
     const registroForm = document.getElementById('registroForm');
     
     if (registroForm) {
         registroForm.addEventListener('submit', async function(e) {
             e.preventDefault(); 
             
-            // Capturamos los datos del Familiar
+            // Capturar los datos del Familiar
             const nombreTutor = document.getElementById('nombreTutor').value;
             const emailTutor = document.getElementById('emailTutor').value;
             const passTutor = document.getElementById('passTutor').value;
             const telefonoTutor = document.getElementById('telefonoTutor').value;
             
-            // Capturamos los datos del Paciente
+            // Captur los datos del Paciente
             const nombrePaciente = document.getElementById('nombrePaciente').value;
             const enfermedadPaciente = document.getElementById('enfermedadPaciente').value;
 
@@ -37,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (respuesta.ok) {
                     alert('¡Registro guardado exitosamente en MongoDB!');
                     
-                    // Guardamos la sesión y los datos del paciente en el navegador
+                    // Guardar la sesión en el navegador
                     localStorage.setItem('idUsuario', data.id_usuario);
                     localStorage.setItem('nombreFamiliar', nombreTutor);
                     localStorage.setItem('nombrePaciente', nombrePaciente);
                     localStorage.setItem('enfermedadPaciente', enfermedadPaciente);
                     
-                    // Redirigimos al Dashboard
+                    // Redirigir al Dashboard
                     window.location.href = 'dashboard.html';
                 } else {
                     alert('Error en el registro: ' + (data.error || 'Verifica los datos'));
@@ -55,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 2. PANEL DE CONTROL (DASHBOARD)
-    // ============================================================
+   
+    // 2. PANEL DE CONTROL
+  
     const userNameDisplay = document.getElementById('userNameDisplay');
     const pacienteDisplay = document.getElementById('pacienteDisplay'); // El nuevo ID del HTML
     const btnLogout = document.getElementById('btnLogout');
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nombrePac = localStorage.getItem('nombrePaciente') || 'Paciente';
         const enfermedadPac = localStorage.getItem('enfermedadPaciente') || 'Sin condición registrada';
         
-        // Aquí inyectamos los datos reales en lugar de "Roberto"
+        // inyectar los datos reales
         pacienteDisplay.textContent = `${nombrePac} (${enfermedadPac})`;
     }
 
@@ -90,9 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ============================================================
-// 3. CONFIRMACIÓN DE TOMA (Lógica independiente)
-// ============================================================
+// 3. CONFIRMACIÓN DE TOMA
+
 async function confirmarToma(idMedicamento = 'ID_DEL_MEDICAMENTO_AQUI', cantidadTomada = 1) {
     try {
         const respuesta = await fetch('/api/tomas/confirmar', {
